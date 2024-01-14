@@ -1,0 +1,50 @@
+.header {
+    padding-top: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+.header_image {
+    max-width:100%;
+    height:auto;
+}
+
+.item_title {
+    margin-left: 40px;
+}
+
+.item_menu {
+    list-style-type: none;
+}
+
+.item_box {
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+    background-color: rgb(247, 242, 236);
+}
+
+
+.item_image {
+    width: 30%;
+    height: 30%;
+    margin-right: 20px;
+}
+
+.item_price_add {
+    display: flex;
+    align-items: center;
+}
+
+.item_price_add p {
+    margin-right: 20px;
+}
+
+.seeMore {
+    background-color: aqua;
+    color: black;
+    border-radius: 10px;
+    padding: 10px;
+    text-decoration: none;
+    margin:20px;
+}
