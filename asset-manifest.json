@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/online-shop/static/css/main.66ef7eae.css",
-    "main.js": "/online-shop/static/js/main.8e30f9e8.js",
+    "main.js": "/online-shop/static/js/main.c8c83c7e.js",
     "static/js/787.37a99e52.chunk.js": "/online-shop/static/js/787.37a99e52.chunk.js",
     "static/media/kuma_cake.jpg": "/online-shop/static/media/kuma_cake.fb8562705430755d28df.jpg",
     "static/media/ice_cream.jpg": "/online-shop/static/media/ice_cream.e7d0d5d7db2e47063c62.jpg",
@@ -11,11 +11,11 @@
     "static/media/bread.jpeg": "/online-shop/static/media/bread.ed9f0d3f937e27327f08.jpeg",
     "index.html": "/online-shop/index.html",
     "main.66ef7eae.css.map": "/online-shop/static/css/main.66ef7eae.css.map",
-    "main.8e30f9e8.js.map": "/online-shop/static/js/main.8e30f9e8.js.map",
+    "main.c8c83c7e.js.map": "/online-shop/static/js/main.c8c83c7e.js.map",
     "787.37a99e52.chunk.js.map": "/online-shop/static/js/787.37a99e52.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.66ef7eae.css",
-    "static/js/main.8e30f9e8.js"
+    "static/js/main.c8c83c7e.js"
   ]
 }
