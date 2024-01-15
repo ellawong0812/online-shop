@@ -11,31 +11,31 @@ import ice_cream from "../Assets/ice_cream.jpg";
 
 const products = [
   {
-    name: "Bread",
+    name: "Kuma Bread",
     category: "Food",
     price: 30,
     photo: bread,
   },
   {
-    name: "Christmas version Kuma",
+    name: "Christmas Version's Kuma",
     category: "Toy",
     price: 150,
     photo: christmas,
   },
   {
-    name: "golden",
+    name: "Golden Kuma",
     category: "Toy",
     price: 220,
     photo: golden,
   },
   {
-    name: "hamburger",
+    name: "Kuma Hamburger",
     category: "Food",
     price: 60,
     photo: hamburger,
   },
   {
-    name: "ice-cream",
+    name: "Ice-Cream",
     category: "Food",
     price: 20,
     photo: ice_cream,
@@ -68,12 +68,12 @@ const Products = () => {
   };
 
   return (
-    <div>
+    <div className="outer">
       <div className="title">
-        <h1>{productCategory}</h1>
+        <h1 className="category_selected">{productCategory}</h1>
       </div>
-      <div className="Dropdown List">
-        <label htmlFor="category-select">Select a category:</label>
+      <div className="dropdown_list">
+        <label htmlFor="category-select">Select a Category:</label>
         <select
           id="category-select"
           value={productCategory}
@@ -95,7 +95,7 @@ const Products = () => {
             />
             <div>
               <h2>{product.name}</h2>
-              <p>{product.price}</p>
+              <p>$ {product.price}</p>
             </div>
             <div>
               <Button onClick={() => handleAddToCart(product)}>

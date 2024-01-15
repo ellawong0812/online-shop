@@ -1,13 +1,23 @@
 .outer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+     
+}
+
+.no_items {
+    margin-left: 100px;
+}
+
+.title_box {
     margin-top: 10px;
     background-color: rgb(183, 226, 243);
     border: 1px solid rgb(23, 123, 156);
     border-radius: 50px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 5px;
+    padding: 15px;
     width: fit-content;
+    margin-left: 90px;
     }
 
 .title {
@@ -43,8 +53,3 @@
     height:30px;
   }
 
-
-.checkout {
-    justify-content: center;
-    display: flex;
-}

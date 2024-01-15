@@ -10,7 +10,7 @@ const ShoppingCart = () => {
 
   const [modalIsOpen, setModalIsOpen] = useState(false);
 
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useState(1);
 
   const increaseCount = () => {
     setCount(count + 1);
@@ -49,14 +49,14 @@ const ShoppingCart = () => {
   };
 
   return (
-    <div>
+    <div className="outer">
       <div>
-        <div className="outer">
+        <div className="title_box">
           <h1 className="title">Shopping Cart🛒</h1>
         </div>
         <ul className="cart_container">
           {cartItems.length === 0 ? (
-            <li>No items in the cart</li>
+            <li className="no_items">No items in the cart</li>
           ) : (
             cartItems.map((item) => (
               <li key={item.id}>

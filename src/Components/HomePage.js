@@ -23,6 +23,9 @@ const HomePage = () => {
 
   return (
     <div>
+      <div className="header_box">
+        <h1 className="title">Welcome to Kuma's Store</h1>
+      </div>
       <div className="header">
         <img className="header_image" src={header} alt="kuma" />
       </div>

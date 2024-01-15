@@ -48,3 +48,14 @@
     text-decoration: none;
     margin:20px;
 }
+
+.header_box {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    background-color: rgb(183, 226, 243);
+    border: 1px solid rgb(23, 123, 156);
+    border-radius: 50px;
+    padding: 15px;
+    width: fit-content;
+}

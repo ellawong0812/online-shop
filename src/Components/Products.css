@@ -1,4 +1,5 @@
 .product-card {
+  margin-top: 30px;
     background-color: rgba(234, 238, 248, 0.64);
     border-radius: 10px;
     padding: 20px;
@@ -25,3 +26,14 @@
     border-radius: 10px;
     margin-bottom: 10px;
   }
+
+.category_selected {
+    margin-top: 10px;
+    margin-bottom: 30px;
+    background-color: rgb(183, 226, 243);
+    border: 1px solid rgb(23, 123, 156);
+    border-radius: 30px;
+    padding: 15px;
+    width: fit-content;
+    margin-left: 120px;
+}
