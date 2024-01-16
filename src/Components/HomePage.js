@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { CartContext } from "./CartContext";
 import Button from "react-bootstrap/Button";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -21,10 +21,19 @@ const HomePage = () => {
     alert("Added to Cart!");
   };
 
+  const [animate, setAnimate] = useState(false);
+
+  useEffect(() => {
+    // Trigger the animation after the component mounts
+    setAnimate(true);
+  }, []);
+
   return (
     <div>
-      <div className="header_box">
-        <h1 className="title">Welcome to Kuma's Store</h1>
+      <div className="title">
+        <h1 className={`welcome ${animate ? "animate-class" : ""}`}>
+          Welcome to Kuma's Store!
+        </h1>
       </div>
       <div className="header">
         <img className="header_image" src={header} alt="kuma" />

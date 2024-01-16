@@ -11,30 +11,35 @@ import ice_cream from "../Assets/ice_cream.jpg";
 
 const products = [
   {
+    id: 3,
     name: "Kuma Bread",
     category: "Food",
     price: 30,
     photo: bread,
   },
   {
+    id: 4,
     name: "Christmas Version's Kuma",
     category: "Toy",
     price: 150,
     photo: christmas,
   },
   {
+    id: 5,
     name: "Golden Kuma",
     category: "Toy",
     price: 220,
     photo: golden,
   },
   {
+    id: 6,
     name: "Kuma Hamburger",
     category: "Food",
     price: 60,
     photo: hamburger,
   },
   {
+    id: 7,
     name: "Ice-Cream",
     category: "Food",
     price: 20,

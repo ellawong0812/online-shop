@@ -10,17 +10,23 @@ const ShoppingCart = () => {
 
   const [modalIsOpen, setModalIsOpen] = useState(false);
 
-  const [count, setCount] = useState(1);
+  const [count, setCount] = useState({});
 
-  const increaseCount = () => {
-    setCount(count + 1);
+  const increaseCount = (itemId) => {
+    setCount((prevCount) => ({
+      ...prevCount,
+      [itemId]: (prevCount[itemId] || 1) + 1,
+    }));
   };
 
-  const decreaseCount = () => {
-    if (count === 0) {
-      return;
-    }
-    setCount(count - 1);
+  const decreaseCount = (itemId) => {
+    setCount((prevCount) => {
+      const updatedCount = (prevCount[itemId] || 1) - 1;
+      return {
+        ...prevCount,
+        [itemId]: updatedCount >= 1 ? updatedCount : 1,
+      };
+    });
   };
 
   const handleCheckout = () => {
@@ -43,7 +49,8 @@ const ShoppingCart = () => {
   const getTotalPrice = () => {
     let totalPrice = 0;
     cartItems.forEach((item) => {
-      totalPrice += item.price * count;
+      const itemTotalPrice = (count[item.id] || 1) * item.price;
+      totalPrice += itemTotalPrice;
     });
     return totalPrice.toFixed(2);
   };
@@ -71,15 +78,15 @@ const ShoppingCart = () => {
                     <Button
                       variant="secondary"
                       size="sm"
-                      onClick={() => increaseCount()}
+                      onClick={() => increaseCount(item.id)}
                     >
                       +
                     </Button>
-                    <p>{count}</p>
+                    <p>{count[item.id] || 1}</p>
                     <Button
                       variant="secondary"
                       size="sm"
-                      onClick={decreaseCount}
+                      onClick={() => decreaseCount(item.id)}
                     >
                       -
                     </Button>
