@@ -11,7 +11,7 @@ const CartContextProvider = (props) => {
     //setCount (callback function) that receives the previous state (prevCount) as an argument.
     setCount1((prevCount) => ({
       ...prevCount,
-      [itemId]: (prevCount[itemId] || 1) + 1,
+      [itemId]: (prevCount[itemId] || 0) + 1,
       //prevCount[itemId] retrieves the current count of the item. If it doesn't exist (i.e., it's undefined), it falls back to a default value of 1.
       //The retrieved count is then incremented by 1
     }));
@@ -37,7 +37,7 @@ const CartContextProvider = (props) => {
     );
     setCount1((prevCount) => ({
       ...prevCount,
-      [item.id]: 1,
+      [item.id]: 0,
     }));
   };
 

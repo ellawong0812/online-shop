@@ -48,7 +48,8 @@ const products = [
 ];
 
 const Products = () => {
-  const { addToCart, count1, increaseCount1 } = useContext(CartContext);
+  const { addToCart, count1, increaseCount1, cartItems } =
+    useContext(CartContext);
 
   const [productCategory, setProductCategory] = useState("All");
   const [filteredCategory, setFilteredCategory] = useState(products);
@@ -67,10 +68,15 @@ const Products = () => {
     }
   };
 
-  const handleAddToCart = (product) => {
-    addToCart(product);
-    increaseCount1(product.id);
-    alert("Added to Cart!");
+  const handleAddToCart = (item) => {
+    const existingItem = cartItems.find((cartItem) => cartItem.id === item.id);
+
+    if (existingItem) {
+      increaseCount1(item.id);
+    } else {
+      addToCart(item);
+      increaseCount1(item.id);
+    }
   };
 
   return (

@@ -9,7 +9,8 @@ import kuma_cake from "../Assets/kuma_cake.jpg";
 import { NavLink } from "react-router-dom";
 
 const HomePage = () => {
-  const { addToCart, count1, increaseCount1 } = useContext(CartContext);
+  const { addToCart, count1, increaseCount1, cartItems } =
+    useContext(CartContext);
 
   const items = [
     {
@@ -29,9 +30,14 @@ const HomePage = () => {
   ];
 
   const handleAddToCart = (item) => {
-    addToCart(item);
-    increaseCount1(item.id);
-    alert("Added to Cart!");
+    const existingItem = cartItems.find((cartItem) => cartItem.id === item.id);
+
+    if (existingItem) {
+      increaseCount1(item.id);
+    } else {
+      addToCart(item);
+      increaseCount1(item.id);
+    }
   };
 
   const [animate, setAnimate] = useState(false);
