@@ -9,11 +9,23 @@ import kuma_cake from "../Assets/kuma_cake.jpg";
 import { NavLink } from "react-router-dom";
 
 const HomePage = () => {
-  const { addToCart } = useContext(CartContext);
+  const { addToCart, cartItems } = useContext(CartContext);
 
   const items = [
-    { id: 1, name: "A set of Rilakkuma", price: 100, photo: small_toy },
-    { id: 2, name: "Rilakkuma Cake", price: 50, photo: kuma_cake },
+    {
+      id: 1,
+      name: "A set of Rilakkuma",
+      category: "Toy",
+      price: 100,
+      photo: small_toy,
+    },
+    {
+      id: 2,
+      name: "Rilakkuma Cake",
+      category: "Toy",
+      price: 50,
+      photo: kuma_cake,
+    },
   ];
 
   const handleAddToCart = (item) => {
@@ -27,6 +39,8 @@ const HomePage = () => {
     // Trigger the animation after the component mounts
     setAnimate(true);
   }, []);
+
+  const cartItemCount = cartItems[items.id];
 
   return (
     <div>
@@ -50,7 +64,7 @@ const HomePage = () => {
                   <div className="item_price_add">
                     <p>$ {item.price}</p>
                     <Button onClick={() => handleAddToCart(item)}>
-                      Add to Cart
+                      Add to Cart {cartItemCount > 0 && <> ({cartItemCount})</>}
                     </Button>
                   </div>
                 </div>

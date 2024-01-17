@@ -6,28 +6,42 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./ShoppingCart.css";
 
 const ShoppingCart = () => {
-  const { cartItems, removeFromCart } = useContext(CartContext);
+  const { cartItems, removeFromCart, count1, increaseCount1, decreaseCount1 } =
+    useContext(CartContext);
 
   const [modalIsOpen, setModalIsOpen] = useState(false);
 
-  const [count, setCount] = useState({});
+  // // Define a state variable count and a function setCount to keep track of the quantity of each item in the cart
+  // const [count, setCount] = useState({});
 
-  const increaseCount = (itemId) => {
-    setCount((prevCount) => ({
-      ...prevCount,
-      [itemId]: (prevCount[itemId] || 1) + 1,
-    }));
-  };
+  // useEffect(() => {
+  //   // Retrieve count from local storage
+  //   const savedCount = localStorage.getItem("count");
+  //   if (savedCount) {
+  //     const parsedCount = JSON.parse(savedCount);
+  //     setCount(parsedCount);
+  //   }
+  // }, []);
 
-  const decreaseCount = (itemId) => {
-    setCount((prevCount) => {
-      const updatedCount = (prevCount[itemId] || 1) - 1;
-      return {
-        ...prevCount,
-        [itemId]: updatedCount >= 1 ? updatedCount : 1,
-      };
-    });
-  };
+  // const increaseCount = (itemId) => {
+  //   //setCount (callback function) that receives the previous state (prevCount) as an argument.
+  //   setCount((prevCount) => ({
+  //     ...prevCount,
+  //     [itemId]: (prevCount[itemId] || 1) + 1,
+  //     //prevCount[itemId] retrieves the current count of the item. If it doesn't exist (i.e., it's undefined), it falls back to a default value of 1.
+  //     //The retrieved count is then incremented by 1
+  //   }));
+  // };
+
+  // const decreaseCount = (itemId) => {
+  //   setCount((prevCount) => {
+  //     const updatedCount = (prevCount[itemId] || 1) - 1;
+  //     return {
+  //       ...prevCount,
+  //       [itemId]: updatedCount >= 1 ? updatedCount : 1,
+  //     };
+  //   });
+  // };
 
   const handleCheckout = () => {
     setModalIsOpen(true);
@@ -37,8 +51,12 @@ const ShoppingCart = () => {
     setModalIsOpen(false);
     const confirmed = window.confirm("Are you sure you want to check out?");
     if (confirmed) {
-      // Remove all items from the cart
-      cartItems.forEach((item) => removeFromCart(item));
+      // Remove all instances of the item from the cart
+      cartItems.forEach((item) => {
+        for (let i = 0; i < ((1)[item.id] || 1); i++) {
+          removeFromCart(item);
+        }
+      });
     }
   };
 
@@ -49,7 +67,7 @@ const ShoppingCart = () => {
   const getTotalPrice = () => {
     let totalPrice = 0;
     cartItems.forEach((item) => {
-      const itemTotalPrice = (count[item.id] || 1) * item.price;
+      const itemTotalPrice = (count1[item.id] || 1) * item.price;
       totalPrice += itemTotalPrice;
     });
     return totalPrice.toFixed(2);
@@ -69,6 +87,7 @@ const ShoppingCart = () => {
               <li key={item.id}>
                 <div className="cart_product">
                   <div className="product_details">
+                    <img src={item.photo} alt={item.name} className="image" />
                     <p className="description">
                       {item.name} - ${item.price}
                     </p>
@@ -78,15 +97,16 @@ const ShoppingCart = () => {
                     <Button
                       variant="secondary"
                       size="sm"
-                      onClick={() => increaseCount(item.id)}
+                      onClick={() => increaseCount1(item.id)}
                     >
                       +
                     </Button>
-                    <p>{count[item.id] || 1}</p>
+                    <p>{count1[item.id] || 1}</p>
+
                     <Button
                       variant="secondary"
                       size="sm"
-                      onClick={() => decreaseCount(item.id)}
+                      onClick={() => decreaseCount1(item.id)}
                     >
                       -
                     </Button>
@@ -94,7 +114,11 @@ const ShoppingCart = () => {
                   <Button
                     className="remove"
                     variant="outline-danger"
-                    onClick={() => removeFromCart(item)}
+                    onClick={() => {
+                      for (let i = 0; i < (count1[item.id] || 1); i++) {
+                        removeFromCart(item);
+                      }
+                    }}
                   >
                     Remove
                   </Button>
