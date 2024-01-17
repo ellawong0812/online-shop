@@ -48,7 +48,7 @@ const products = [
 ];
 
 const Products = () => {
-  const { addToCart, cartItems } = useContext(CartContext);
+  const { addToCart, count1, increaseCount1 } = useContext(CartContext);
 
   const [productCategory, setProductCategory] = useState("All");
   const [filteredCategory, setFilteredCategory] = useState(products);
@@ -69,10 +69,9 @@ const Products = () => {
 
   const handleAddToCart = (product) => {
     addToCart(product);
+    increaseCount1(product.id);
     alert("Added to Cart!");
   };
-
-  const cartItemCount = cartItems[products.id];
 
   return (
     <div className="outer">
@@ -106,7 +105,8 @@ const Products = () => {
             </div>
             <div>
               <Button onClick={() => handleAddToCart(product)}>
-                Add to Cart {cartItemCount > 0 && <> ({cartItemCount})</>}
+                Add to Cart{" "}
+                {count1[product.id] > 0 && <> ({count1[product.id]})</>}
               </Button>
             </div>
           </div>

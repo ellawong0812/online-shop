@@ -9,7 +9,7 @@ import kuma_cake from "../Assets/kuma_cake.jpg";
 import { NavLink } from "react-router-dom";
 
 const HomePage = () => {
-  const { addToCart, cartItems } = useContext(CartContext);
+  const { addToCart, count1, increaseCount1 } = useContext(CartContext);
 
   const items = [
     {
@@ -30,6 +30,7 @@ const HomePage = () => {
 
   const handleAddToCart = (item) => {
     addToCart(item);
+    increaseCount1(item.id);
     alert("Added to Cart!");
   };
 
@@ -39,8 +40,6 @@ const HomePage = () => {
     // Trigger the animation after the component mounts
     setAnimate(true);
   }, []);
-
-  const cartItemCount = cartItems[items.id];
 
   return (
     <div>
@@ -64,7 +63,8 @@ const HomePage = () => {
                   <div className="item_price_add">
                     <p>$ {item.price}</p>
                     <Button onClick={() => handleAddToCart(item)}>
-                      Add to Cart {cartItemCount > 0 && <> ({cartItemCount})</>}
+                      Add to Cart{" "}
+                      {count1[item.id] > 0 && <> ({count1[item.id]})</>}
                     </Button>
                   </div>
                 </div>
